@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,41 +16,42 @@
 
 <body>
     <!-- Ajout d'une tache -->
-    <fieldset class="form">
+    <center>
+    <fieldset>
         <form action="formulaire.php" method="POST">
             <label for="task">Ajouter une tâche</label>
             <input  name="task" type="text" required placeholder="Ma tâche">
-            <input name="add" type="submit" value="ajouter" >
+            <input  type="submit" value="ajouter" name="add">
         </form>
     </fieldset>
 
     <!--ici s'affichera la liste des taches -->
     <form action="formulaire.php" method="POST">
         <?php
-        echo '<h1> Ma liste de tâche</h1>';
+        echo '<h1> Ma liste de tâches</h1>';
         foreach ($table as $task) {
-            echo '<p class="draggable"><input name="check[]" type="checkbox" value="' . $task . '">' . $task . '</p><p></p>';
+            echo '<p><input name="check[]" type="checkbox" value="'.$task.'">'.$task.'</p><p></p>';
         }
         echo '</div>';
         ?>
-        <input class="del" type="submit" value="supprimer" name="supprimer">
-        <input class="done" type="submit" value="archive" name="done">
+        <input  type="submit" value="archive" name="task">
         <p></p>
     </form>
 
     <!-- Les tache dejà realiser seront rediriger dans l'Archive -->
-    <fieldset class="dropper"style ="float : top;">
+    <fieldset style ="float : top;">
         <?php
         echo '<h3 >ARCHIVE</h3>';
-        foreach ($show as $composent) {
-            echo '<p class="done">' . $composent["done"] . '</p>'; //check[] parce qu'on peut check plusieurs en même temps
+        foreach ($show as $task) {
+            echo '<p >'.$task["task"].'</p>'; 
          }
         ?>
     </fieldset>
+    </center>
 
 
 
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/todo.js"></script>
 </body>
 
 </html>
