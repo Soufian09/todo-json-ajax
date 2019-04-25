@@ -19,16 +19,6 @@ if (isset($_POST['add']) AND ($_POST['task'])){
     
 } 
 
-// if(isset($_POST['add']) AND ($_POST['task'])){
-//     $task = $_POST['task'];
-//     echo $task;
-//     $show = file_get_contents('todo.json');
-//     $decode = json_decode($show, true);
-//     $decode[] = array('tache' => $task);
-
-//     file_put_contents('todo.json', json_encode($decode));
-// }
-
 ?>
 
 
